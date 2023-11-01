@@ -9,6 +9,7 @@
 #include <vector>
 #include "read.h"
 #include "palindrome.h"
+#include "malicious.h"
 
 using namespace std;
 
