@@ -8,6 +8,7 @@
 #include <fstream>
 #include <vector>
 #include "read.h"
+#include "palindrome.h"
 
 using namespace std;
 
