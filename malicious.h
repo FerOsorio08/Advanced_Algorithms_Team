@@ -1,79 +1,65 @@
-// #include <iostream>
-// #include <string>
-// #include <vector>
-// #include <fstream>  // Required for file operations
+// Lucia Barrenechea, Ian Holender, Fernanda Osorio
+// 2 de noviembre del 2023
+// Header para encontrar el substring mas largo común entre dos archivos
+#include <iostream>
+#include <vector>
+#include <string>
+#include <fstream> 
+#ifndef malicious_h
+#define malicious_h
 
-// using namespace std;
+using namespace std;
 
-// int findPatternPosition(const string& text, const string& pattern) {
-//     int n = text.length();
-//     int m = pattern.length();
+//Declaraciones de funciones
+int findPatternPosition(const string& text, const string& pattern);
+string readFileM(const string& filename);
+void findAndDisplayPattern(const string& text, const string& pattern, const string& transmissionName);
 
-//     if (m > n) {
-//         return -1;
-//     }
 
-//     for (int i = 0; i <= n - m; i++) {
-//         if (text.substr(i, m) == pattern) {
-//             return i;
-//         }
-//     }
-//     return -1;
-// }
+//Definicones de Funciones
+int findPatternPosition(const string& text, const string& pattern) {
+    int n = text.length();
+    int m = pattern.length();
 
-// string readFile(const string& filename) {
-//     ifstream file(filename);
-//     string content, line;
+    if (m > n) {
+        return -1;
+    }
 
-//     if (!file.is_open()) {
-//         cerr << "Failed to open file: " << filename << endl;
-//         return "";
-//     }
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == pattern) {
+            return i;
+        }
+    }
+    return -1;
+}
 
-//     while (getline(file, line)) {
-//         content += line;
-//     }
+string readFileM(const string& filename) {
+    ifstream file(filename);
+    string content, line;
 
-//     file.close();
-//     return content;
-// }
+    if (!file.is_open()) {
+        cerr << "Failed to open file: " << filename << endl;
+        return "";
+    }
 
-// int main() {
-//     string text1 = readFile("transmission1.txt");
-//     string text2 = readFile("transmission2.txt");
-//     vector<string> mcodesFiles = {
-//         "mcode1.txt",
-//         "mcode2.txt",
-//         "mcode3.txt"
-//     };
-//     vector<string> mcodes;
+    while (getline(file, line)) {
+        content += line;
+    }
 
-//     for (const string& file : mcodesFiles) {
-//         mcodes.push_back(readFile(file));
-//     }
-    
+    file.close();
+    return content;
+}
 
-//     cout << "Parte 1:" << endl;
-    
-//     for (string& mcode : mcodes) {
-//         int position = findPatternPosition(text1, mcode);
-//         if(position != -1) {
-//             cout << "true, the pattern: \"" << mcode << "\" from " << mcode << " appears in transmission1"  
-//                  << " from position " << position << " to position " << position + mcode.length() - 1 << endl;
-//         } else {
-//             cout << "false, the pattern: \"" << mcode << "\" from " << mcode << " does not appear in transmission1"  << endl;
-//         }
-//     }
+void findAndDisplayPattern(const string& text, const string& pattern, const string& transmissionName) {
+    size_t position = text.find(pattern);
+    if (position != string::npos) {
+        cout << "true, the pattern: \"" << pattern << "\" from " << pattern << " appears in " << transmissionName
+             << " from position " << position << " to position " << position + pattern.length() - 1 << endl;
+    } else {
+        cout << "false, the pattern: \"" << pattern << "\" from " << pattern << " does not appear in " << transmissionName << endl;
+    }
+}
 
-//     for (auto& mcode : mcodes) {
-//         int position = findPatternPosition(text2, mcode);
-//         if(position != -1) {
-//             cout << "true, the pattern: \"" << mcode << "\" from " << mcode << " appears in transmission2"  
-//                  << " from position " << position << " to position " << position + mcode.length() - 1 << endl;
-//         } else {
-//             cout << "false, the pattern: \"" << mcode << "\" from " << mcode << " does not appear in transmission2"  << endl;
-//         }
-//     }
 
-//     return 0;
-// }
+
+#endif
