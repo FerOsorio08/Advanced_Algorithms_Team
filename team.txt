@@ -1,0 +1,15 @@
+Integrantes:
+    Lucía Barrenechea- A01782021
+    Fernanda Osorio- 
+    Ian Holender- 
+
+Lucía Barrenechea
+    Yo trabaje en crear el header palindrome.h que se encarga en encontrar el 
+    palindromo mas largo encontrado en los archivos de texto transmission1.txt y 
+    transmission2.txt. Dentro de este header se encuentra la función even() y la 
+    función findPalindrome(). De igual forma ayude a modificar el header de read para
+    que lea chars pero al final nos quedamos con la versión de mi compañera Fernanda Osorio.
+
+Fernanda Osorio
+
+Ian Holender
