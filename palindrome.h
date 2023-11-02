@@ -14,17 +14,19 @@ vector <char> text;
 vector <char> palindrome;
 vector <int> palSize;
 
-void even(){
+void even(vector <char> text){
+    palindrome.clear();
+    palSize.clear();
     for (int i = 0; i < text.size(); i++) {
         palindrome.push_back('0');
         palindrome.push_back(text[i]);
-        cout<<palindrome[i]<<" ";
+        //cout<<palindrome[i]<<" ";
     }
     palindrome.push_back('0');
 }
 
-void findPalindrome(){
-    even();
+void findPalindrome(vector <char> text){
+    even(text);
     int count=0;
     int j=0;
     int x=0;
@@ -33,8 +35,8 @@ void findPalindrome(){
     char right;
     int len=0;
     int max=0;
-    int indexl;
-    int indexr;
+    int indexl=0;
+    int indexr=0;
     // if(textLength<=1){ //If the text has only one letter or none.
     //     return;
     // }
@@ -78,17 +80,15 @@ void findPalindrome(){
         }
         count=0;
     }
-    for (unsigned long i = 0; i < text.size(); i++) {
-       cout<<text[i]<<" ";
-    }
+    // for (unsigned long i = 0; i < text.size(); i++) {
+    //    cout<<text[i]<<" ";
+    // }
+    // cout<<endl;
+    // for (unsigned long i = 0; i < palSize.size(); i++) {
+    //    cout<<palSize[i]<<" ";
+    // }
     cout<<endl;
-    for (unsigned long i = 0; i < palSize.size(); i++) {
-       cout<<palSize[i]<<" ";
-    }
-    cout<<endl;
-    cout<<"The largest palindrome starts in index: "<<indexl<<endl;
-    cout<<"The largest palindrome ends in index: "<<indexr<<endl;
-
+    cout<<indexl<<" "<<indexr<<endl;
 }
 
 // int main(){

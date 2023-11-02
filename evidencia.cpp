@@ -30,5 +30,7 @@ int main(int argc, char *argv[]){
     vector<char> T1 = readFileC("transmission1.txt");
     vector<char> T2 = readFileC("transmission2.txt");
     cout << LCS(T1,T2) << endl;
-    
+    cout<<"Printing Palindromes"<<endl;
+    findPalindrome(T1);
+    findPalindrome(T2);
 }
