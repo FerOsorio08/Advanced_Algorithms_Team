@@ -9,6 +9,7 @@
 #include <vector>
 #include "read.h"
 
+
 using namespace std;
 
 int main(int argc, char *argv[]){
