@@ -10,6 +10,7 @@
 #include "read.h"
 #include "palindrome.h"
 #include "malicious.h"
+#include "substring.h"
 
 
 using namespace std;
@@ -24,4 +25,10 @@ int main(int argc, char *argv[]){
   
     vector<vector <string> > fileContents = readFiles(names);
     printFiles(names, fileContents);
+
+    cout << "\x1B[1;34m" << "Longest Common Substring" << ":" << "\x1B[0m"<< endl;
+    vector<char> T1 = readFileC("transmission1.txt");
+    vector<char> T2 = readFileC("transmission2.txt");
+    cout << LCS(T1,T2) << endl;
+    
 }
