@@ -17,6 +17,8 @@ void printVectorChar(vector<vector<char> > v);
 
 //Definicones de Funciones
 
+//función para leer el archivo
+//Complejidad: O(n)
 vector<char> readFileC(const string& filename) {
     vector<char> content;
     ifstream file(filename);
@@ -34,6 +36,8 @@ vector<char> readFileC(const string& filename) {
     return content;
 }
 
+//función para encontrar el substring mas largo común entre dos archivos
+//Complejidad: O(n^2*m)
 
 string LCS(const vector<char>& S1, const vector<char>& S2) {
     int m = S1.size();
@@ -73,6 +77,8 @@ string LCS(const vector<char>& S1, const vector<char>& S2) {
     return commonSubstring;
 }
 
+//función para leer los archivos y guardarlos en un vector de vectores de chars
+//Complejidad: O(n*m)
 vector < vector < char > > readFilesChar (const vector <string> & filenames){
     vector<vector<char> > fileContents;
 
@@ -97,7 +103,8 @@ vector < vector < char > > readFilesChar (const vector <string> & filenames){
 
 }
 
-
+//función para imprimir un vector de vectores de chars
+//Complejidad: O(n*m)
 void printVectorChar(vector<vector<char> > v){
     for (auto i = v.begin(); i != v.end(); ++i){
         for (auto j = i->begin(); j != i->end(); ++j){
