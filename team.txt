@@ -1,6 +1,6 @@
 Integrantes:
     Lucía Barrenechea- A01782021
-    Fernanda Osorio- 
+    Fernanda Osorio- A01026502
     Ian Holender- 
 
 Lucía Barrenechea
@@ -11,5 +11,11 @@ Lucía Barrenechea
     que lea chars pero al final nos quedamos con la versión de mi compañera Fernanda Osorio.
 
 Fernanda Osorio
+    Participe realizando la parte 3, que busca un substring más largo en común entre dos archivos de texto.
+    En este caso los archivos eran las transmisiones. La solución utiliza una matriz que recorre ambos archivos
+    y compara los caracteres de cada uno. Si son iguales, se suma 1 a la matriz en la posición correspondiente. 
+    También se checa que la posición de la matriz sea mayor a la longitud del substring más largo encontrado hasta el momento.
+    La solución también considera el caso en el que no haya un substring en común entre los dos archivos. Lo que regresa
+    son las posiciones en el primer archivo donde se puede encontrar el substring más largo en común; asi como el valor del mismo.
 
 Ian Holender

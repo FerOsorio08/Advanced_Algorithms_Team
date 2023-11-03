@@ -38,16 +38,20 @@ vector<char> readFileC(const string& filename) {
 string LCS(const vector<char>& S1, const vector<char>& S2) {
     int m = S1.size();
     int n = S2.size();
-
+    // Crear una matriz de (m+1)x(n+1) para guardar los valores de LCS
     vector<vector<int> > LCS_table(m + 1, vector<int>(n + 1, 0));
     int max_len = 0;   // Longitud maxima
     int end_index = 0; // indice final del CS en S1
 
     // Usar una matriz de "abajo para arriba"
     for (int i = 1; i <= m; i++) {
+        // Recorrer S2
         for (int j = 1; j <= n; j++) {
+            // Si los caracteres son iguales
             if (S1[i - 1] == S2[j - 1]) {
+                // Sumar 1 al valor de la diagonal
                 LCS_table[i][j] = LCS_table[i - 1][j - 1] + 1;
+                // Si el valor es mayor al maximo se debe actualizar
                 if (LCS_table[i][j] > max_len) {
                     max_len = LCS_table[i][j];
                     end_index = i - 1;
