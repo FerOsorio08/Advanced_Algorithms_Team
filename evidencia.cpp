@@ -26,16 +26,16 @@ int main(int argc, char *argv[]){
     // printFiles(names, fileContents);
 
     vector<string> malcodes;
-    malcodes.push_back("./texts/mcode1.txt");
-    malcodes.push_back("./texts/mcode2.txt");
-    malcodes.push_back("./texts/mcode3.txt");
+    malcodes.push_back("mcode1.txt");
+    malcodes.push_back("mcode2.txt");
+    malcodes.push_back("mcode3.txt");
     vector<string> mcodes;
     for (const string &file : malcodes){
         mcodes.push_back(readFileM(file));
     }
 
-    string text1 = readFileM("./texts/transmission1.txt");
-    string text2 = readFileM("./texts/transmission2.txt");
+    string text1 = readFileM("transmission1.txt");
+    string text2 = readFileM("transmission2.txt");
 
     cout << "\x1B[1;33m"
          << "Malicious Code in Transmissions:"
@@ -54,8 +54,8 @@ int main(int argc, char *argv[]){
          << "Longest Common Substring"
          << ":"
          << "\x1B[0m" << endl;
-    vector<char> T1 = readFileC("./texts/transmission1.txt");
-    vector<char> T2 = readFileC("./texts/transmission2.txt");
+    vector<char> T1 = readFileC("transmission1.txt");
+    vector<char> T2 = readFileC("transmission2.txt");
     cout << LCS(T1, T2) << endl;
     cout << "\x1B[1;31m"
          << "Printing Palindromes"
