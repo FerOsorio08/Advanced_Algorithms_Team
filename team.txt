@@ -21,6 +21,6 @@ Fernanda Osorio
 Ian Holender
     Yo trabaje en la parte 1 de la evidencia , creando el codigo malicious.cpp donde recibe  
     archivos .txt (mcode y transmission) y su objetivo es comparar el contenido del archivo 
-    "mcode" con  el "treansmission" para verificar si es que se encuentra la secuencia de caracteres 
-    dentro de transmission, ademas de esto te despliega un mensaje diciendo si si se encontro 
+    "mcode" con  el "transmisión" para verificar si es que se encuentra la secuencia de caracteres 
+    dentro de transmision, ademas de esto te despliega un mensaje diciendo si si se encontro 
     la similitud dentro del Transmission (True| False) y en la posicion que se encontro.
