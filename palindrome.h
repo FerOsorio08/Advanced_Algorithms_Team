@@ -14,6 +14,7 @@ vector <char> text;
 vector <char> palindrome;
 vector <int> palSize;
 
+//Big O complexity of O(n)
 void even(vector <char> text){
     palindrome.clear();
     palSize.clear();
@@ -23,7 +24,7 @@ void even(vector <char> text){
     }
     palindrome.push_back('0');
 }
-
+//Big O complexity of O(n^2)
 void findPalindrome(vector <char> text){
     even(text);
     int count=0;
