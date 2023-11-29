@@ -24,13 +24,13 @@ int main(int argc, char *argv[]){
     printMatrix(graph);
     cout << endl;
     cout << "Shortest paths:" << endl;
-    vector<vector<int> > shortestPaths = FloydWarshallEdges(edges2);
-    printMatrix(shortestPaths);
+    // vector<vector<int> > shortestPaths = FloydWarshallEdges(edges2);
+    // printMatrix(shortestPaths);
 
     // printMatrix(graph);
     // Floyd-Warshall algorithm
-    // vector<vector<int> > shortestPaths = FloydWarshall(graph);
-    // cout << "Matriz de caminos mas cortos:" << endl;
-    // printMatrix(shortestPaths);
+    vector<vector<int> > shortestPaths = FloydWarshall(graph);
+    cout << "Matriz de caminos mas cortos:" << endl;
+    printMatrix(shortestPaths);
 
 }
