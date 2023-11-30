@@ -69,7 +69,7 @@ void tspBranchBound(const vector<vector<int> >& graph, vector<int>& camino, vect
             int temp = currWeight;
             int bound = currWeight - primerMin(graph, currPos) + graph[currPos][i] + segundoMin(graph, i);
             // from which node to which node and weight
-            cout << "from " << currPos << " to " << i << " weight " << graph[currPos][i] << endl;
+            // cout << "from " << currPos << " to " << i << " weight " << graph[currPos][i] << endl;
 
             // Pruning condition
             if (bound < finalWeight) {
