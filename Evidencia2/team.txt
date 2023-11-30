@@ -1,0 +1,22 @@
+Integrantes del equipo:
+Fernanda Osorio A01026502
+Ian Holender A01026295
+Lucia Barrenechea - A0178202
+
+Las partes a desarrollar en la actividad son las siguientes:
+1. leer un archivo de entrada que contiene la información de un grafo representado en forma de una matriz de adyacencias con grafos ponderados
+El peso de cada arista es la distancia en kilómetros entre colonia y colonia, por donde es factible meter cableado.
+
+El programa debe desplegar cuál es la forma óptima de cablear con fibra óptica conectando colonias de tal forma que se pueda compartir información entre cuales quiera dos colonias.
+
+2. Debido a que las ciudades apenas están entrando al mundo tecnológico, se requiere que alguien visite cada colonia para ir a dejar estados de cuenta físicos, publicidad, avisos y notificaciones impresos. por eso se quiere saber ¿cuál es la ruta más corta posible que visita cada colonia exactamente una vez y al finalizar regresa a la colonia origen?
+El programa debe desplegar la ruta a considerar, tomando en cuenta que la primera ciudad se le llamará A, a la segunda B, y así sucesivamente
+
+Por último
+
+3. Teniendo en cuenta la ubicación geográfica de varias "centrales" a las que se pueden conectar nuevas casas, la empresa quiere contar con una forma de decidir, dada una nueva contratación del servicio, cuál es la central más cercana geográficamente a esa nueva contratación. No necesariamente hay una central por cada colonia. Se pueden tener colonias sin central, y colonias con más de una central. En este caso se deben pedir las coordenadas del nuevo servicio para decir cuál es la que le queda más cerca.
+
+Ya que el equipo se conformó de 3 personas, se decidió que cada una de ellas se encargara de una parte del proyecto, por lo que se dividió de la siguiente manera:
+Fernanda Osorio: Parte 1
+Lucia Barrenechea: Parte 2
+Ian Holender: Parte 3

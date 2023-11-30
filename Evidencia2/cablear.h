@@ -55,11 +55,16 @@ void printMST(int parent[], vector<vector<int> >& graph, int V) {
 //no regresa nada
 //Complejidad: O(V^2), por la llamada a minKey()
 void Prim(vector<vector<int> >& graph, int V) {
+    // parent array to store constructed MST
+    // the parent is used to print the MST 
     int parent[V];
+    // key values used to pick minimum weight edge in cut
     int key[V];
+    // to represent set of vertices not yet included in MST
     bool mstSet[V];
 
     for (int i = 0; i < V; i++) {
+        // for all vertices, initialize key as infinite and mstSet as false
         key[i] = INT_MAX;
         mstSet[i] = false;
     }
@@ -73,8 +78,11 @@ void Prim(vector<vector<int> >& graph, int V) {
         mstSet[u] = true;
 
         for (int v = 0; v < V; v++) {
+            // if edge graph[u][v] is smaller than key[v] and v is not yet in mstSet
             if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v]) {
+                // update key value and parent index of vertex v
                 parent[v] = u;
+                // update minimmum distance
                 key[v] = graph[u][v];
             }
         }
