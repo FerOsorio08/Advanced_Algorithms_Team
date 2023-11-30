@@ -92,3 +92,6 @@ void Prim(vector<vector<int> >& graph, int V) {
 }
 
 #endif
+
+// Fuentes:
+// Programiz.(s.f).Prim's Algorithm.https://www.programiz.com/dsa/prim-algorithm 
