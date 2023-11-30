@@ -63,7 +63,7 @@ void tspBranchBound(const vector<vector<int> >& graph, vector<int>& camino, vect
         return;
     }
 
-    // Branch and Bound
+    // Branch and Bound17
     for (int i = 0; i < n; i++) {
         if (!visited[i] && graph[currPos][i] != 0) {
             int temp = currWeight;
@@ -119,3 +119,12 @@ void tspBB(const vector<vector<int> >& graph) {
 }
 
 #endif
+
+
+
+
+
+
+
+//Referencias
+//Geek for geeks(2023).Traveling Salesman Problem using Branch And Bound. https://www.geeksforgeeks.org/traveling-salesman-problem-using-branch-and-bound-2/
