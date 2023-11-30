@@ -16,16 +16,9 @@
 
 using namespace std;
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <climits>
-
-using namespace std;
 
 const int INF = INT_MAX;
 
-// Function to find the minimum edge cost having an end at the vertex 'i'
 int firstMin(const vector<vector<int> >& graph, int i) {
     int minCost = INF;
     for (int j = 0; j < graph.size(); j++) {
@@ -36,7 +29,6 @@ int firstMin(const vector<vector<int> >& graph, int i) {
     return minCost;
 }
 
-// Function to find the second minimum edge cost having an end at the vertex 'i'
 int secondMin(const vector<vector<int> >& graph, int i) {
     int firstMinValue = INF, secondMinValue = INF;
     for (int j = 0; j < graph.size(); j++) {
@@ -52,15 +44,14 @@ int secondMin(const vector<vector<int> >& graph, int i) {
     return secondMinValue;
 }
 
-// Recursive function to solve TSP using Branch and Bound
 void tspBBUtil(const vector<vector<int> >& graph, vector<int>& path, vector<bool>& visited, int& currWeight, int& finalWeight, int currPos, int n, int count) {
     if (count == n) {
-        // Complete the tour
+        // Complete the tour by returning to the initial node
         if (graph[currPos][0] != 0) {
             int currCost = currWeight + graph[currPos][0];
             if (currCost < finalWeight) {
                 finalWeight = currCost;
-                path = path;
+                path[count - 1] = 0;  // Set the last element of the path to 0
             }
         }
         return;
@@ -70,24 +61,27 @@ void tspBBUtil(const vector<vector<int> >& graph, vector<int>& path, vector<bool
     for (int i = 0; i < n; i++) {
         if (!visited[i] && graph[currPos][i] != 0) {
             int temp = currWeight;
-            currWeight += graph[currPos][i] + firstMin(graph, currPos);
-            if (currWeight < finalWeight) {
-                path[count] = i;
-                visited[i] = true;
-                tspBBUtil(graph, path, visited, currWeight, finalWeight, i, n, count + 1);
-            }
+            int bound = currWeight - firstMin(graph, currPos) + graph[currPos][i] + secondMin(graph, i);
+            // from which node to which node and weight
+            cout << "from " << currPos << " to " << i << " weight " << graph[currPos][i] << endl;
 
-            // Backtrack
-            currWeight = temp;
-            fill(visited.begin(), visited.end(), false);
-            for (int j = 0; j <= count; j++) {
-                visited[path[j]] = true;
+            // Pruning condition
+            if (bound < finalWeight) {
+                currWeight += graph[currPos][i];
+                if (currWeight < finalWeight) {
+                    path[count] = i;
+                    visited[i] = true;
+                    tspBBUtil(graph, path, visited, currWeight, finalWeight, i, n, count + 1);
+                    visited[i] = false;  // Backtrack
+                }
+
+                // Backtrack
+                currWeight = temp;
             }
         }
     }
 }
 
-// Main function to solve TSP using Branch and Bound
 void tspBB(const vector<vector<int> >& graph) {
     int n = graph.size();
     vector<int> path(n, -1);
@@ -101,18 +95,24 @@ void tspBB(const vector<vector<int> >& graph) {
     int finalWeight = INF;  // Initialize the final weight to a large value
 
     tspBBUtil(graph, path, visited, currWeight, finalWeight, 0, n, 1);
-
+    // list of letters to represent the path
+    vector<char> letters;
+    for (int i = 0; i < n; i++) {
+        letters.push_back('A' + i);
+    }
     cout << "Minimum Cost: " << finalWeight << endl;
     cout << "Path Taken: ";
     for (int i : path) {
-        cout << i << " ";
+        // represent the path with letters
+        cout << letters[i] << " ";
+        // cout << i << " ";
     }
-    cout << endl;
+    cout << "A" << endl;  // Ensure the path returns to the initial node
 }
 
 // int main() {
 //     // Example usage
-//     vector<vector<int>> graph = {
+//     vector<vector<int> > graph = {
 //         {0, 10, 15, 20},
 //         {10, 0, 35, 25},
 //         {15, 35, 0, 30},
