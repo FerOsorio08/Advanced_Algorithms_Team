@@ -8,6 +8,7 @@
 #include <sstream>
 #include "cablear.h"
 #include "read.h"
+#include "tsp.h"
 
 using namespace std;
 
@@ -16,5 +17,6 @@ int main(int argc, char *argv[]){
     vector<vector<int> > graph = readGraphFromFile("matriz.txt");
     int n = readFirstLineFromFile("matriz.txt");
     Prim(graph,n);
+    tspBB(graph);
 
 }
