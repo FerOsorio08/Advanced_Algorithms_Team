@@ -18,12 +18,24 @@ int main(int argc, char *argv[]){
     vector<vector<int> > graph = readGraphFromFile("matriz.txt");
     vector <pair<int, int> > coordinates = readCoordinatesFromFile("matriz.txt");
     int n = readFirstLineFromFile("matriz.txt");
+    cout << "\x1B[1;32m"
+         << "Manera óptima de cablear:"
+         << ":"
+         << "\x1B[0m" << endl;
     Prim(graph,n);
+    cout << "\x1B[1;34m"
+         << "Mejor camino para recorrer todas las colonias:"
+         << ":"
+         << "\x1B[0m" << endl;
     tspBB(graph);
     int x, y;
     cout << "Ingrese las coordenadas del nuevo servicio:\n";
     cin >> x >> y;
 
+    cout << "\x1B[1;33m"
+         << "Central más cercana:"
+         << ":"
+         << "\x1B[0m" << endl;
     int nearestCentralIndex = findNearestCentral(coordinates, x, y);
     printNearestCentral(coordinates, nearestCentralIndex);
 
