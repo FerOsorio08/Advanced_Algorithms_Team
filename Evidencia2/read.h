@@ -52,6 +52,27 @@ vector<vector<int> > readGraphFromFile(const string& filename) {
     return graph;
 }
 
+int readFirstLineFromFile(const string& filename) {
+    ifstream file(filename);
+
+    if (!file.is_open()) {
+        cerr << "Error opening the file: " << filename << endl;
+        return -1; // Return -1 to indicate an error
+    }
+
+    string firstLine;
+    getline(file, firstLine);
+
+    file.close();
+
+    // Convert the first line to an integer
+    int result;
+    stringstream(firstLine) >> result;
+
+    return result;
+}
+
+
 void printMatrix(const vector<vector<int> >& matrix) {
     int n = matrix.size();
     cout << "Matriz de adyacencia:" << endl;
@@ -112,32 +133,6 @@ vector<Edge> readGraphFromFileEdge(const string& filename) {
     return edges;
 }
 
-// vector<vector<Edge> > readGraphFromFile(const string& filename) {
-//     ifstream file(filename);
-//     int n; // Size of the matrix
-//     vector<vector<Edge> > graph;
-
-//     if (file.is_open()) {
-//         file >> n;
-//         graph.resize(n);
-
-//         for (int i = 0; i < n; ++i) {
-//             for (int j = 0; j < n; ++j) {
-//                 int weight;
-//                 file >> weight;
-//                 if (weight > 0) {
-//                     graph[i].emplace_back(j, weight);
-//                 }
-//             }
-//         }
-//         file.close();
-//     } else {
-//         cerr << "Error al abrir el archivo: " << filename << endl;
-//         exit(1);
-//     }
-
-//     return graph;
-// }
 
 void printEdges(const vector<Edge>& edges) {
     cout << "Aristas:" << endl;
@@ -147,20 +142,6 @@ void printEdges(const vector<Edge>& edges) {
     }
 }
 
-// void printGraph(const vector<vector<Edge> >& graph) {
-//     int n = graph.size();
-//     cout << "Matriz de adyacencia:" << endl;
-
-//     for (const vector<Edge>& edges : graph) {
-//         //which edges are connected to this vertex
-//         cout << "Vertex "<< edges[0].destination << ": ";
-//         for (const Edge& edge : edges) {
-//             cout << edge.destination << "  ";
-//             cout << edge.weight << "  ";
-//         }
-//         cout << endl;
-//     }
-// }
 
 
 #endif
