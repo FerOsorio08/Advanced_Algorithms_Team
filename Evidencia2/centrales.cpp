@@ -65,6 +65,8 @@ int main() {
     
     cout<< "\n";
     cout << "Complejidad del código: O(M^2 + N)\n";
+    cout << "Esta complejidad se debe a la lectura de una matriz\n"; 
+    cout<< "cuadrada de tamaño M y al procesamiento de N centrales.\n";
     cout<< "\n";
 
     return 0;
