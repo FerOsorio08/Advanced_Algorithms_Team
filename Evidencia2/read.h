@@ -1,5 +1,5 @@
 // Lucia Barrenechea, Ian Holender, Fernanda Osorio
-// 28 de noviembre del 2023
+// 29 de noviembre del 2023
 //Este header contiene las funciones necesarias para recibir los datos
 #include <iostream>
 #include <fstream>
@@ -11,24 +11,19 @@
 
 using namespace std;
 
-class Edge {
-public:
-    // Nodos que conecta la arista
-    int start, end, weight;
-
-    // Constructor para inicializar los miembros de la clase
-    Edge(int s, int e, int w) : start(s), end(e), weight(w) {}
-};
-
-// class Edge {
-// public:
-//     int destination;  // End node of the edge
-//     int weight;       // Weight (distance) of the edge
-
-//     Edge(int dest, int w) : destination(dest), weight(w) {}
-// };
 
 //Declaraciones de funciones 
+vector<vector<int> > readGraphFromFile(const string& filename);
+int readFirstLineFromFile(const string& filename);
+void printMatrix(const vector<vector<int> >& matrix);
+
+
+//Definiciones de funciones
+
+// Función para leer el grafo de un archivo
+//recibe el nombre del archivo
+//regresa el grafo en forma de matriz de adyacencia
+//Complejidad: O(n^2)
 vector<vector<int> > readGraphFromFile(const string& filename) {
     ifstream file(filename);
     int n; // Tamaño de la matriz
@@ -52,6 +47,10 @@ vector<vector<int> > readGraphFromFile(const string& filename) {
     return graph;
 }
 
+// Función para leer la primera línea de un archivo
+//recibe el nombre del archivo
+//regresa el primer número de la primera línea del archivo
+//Complejidad: O(1)
 int readFirstLineFromFile(const string& filename) {
     ifstream file(filename);
 
@@ -72,7 +71,10 @@ int readFirstLineFromFile(const string& filename) {
     return result;
 }
 
-
+// Función para imprimir una matriz
+//recibe la matriz a imprimir
+//no regresa nada
+//Complejidad: O(n^2)
 void printMatrix(const vector<vector<int> >& matrix) {
     int n = matrix.size();
     cout << "Matriz de adyacencia:" << endl;
@@ -85,62 +87,7 @@ void printMatrix(const vector<vector<int> >& matrix) {
     }
 }
 
-//make vector<vector<int>> graph into vector<Edge> edges
-vector<Edge> makeEdges(const vector<vector<int> >& graph) {
-    int n = graph.size();
-    vector<Edge> edges;
 
-    //for each vertex
-    for (int i = 0; i < n; ++i) {
-        int start = graph[i][0]; //which vertex is this
-        // cout << "Vertex START :"<< start << ": ";
-        //which edges are connected to this vertex
-        for (int j = 0; j < n; ++j) {
-            int end = graph[j][0]; //which vertex is this
-            edges.emplace_back(start, end, graph[i][j]);
-            cout << "edge: " << start << " -> " << end << " : " << graph[i][j] << endl;
-            
-        }
-    }
-
-    return edges;
-}
-
-
-vector<Edge> readGraphFromFileEdge(const string& filename) {
-    ifstream file(filename);
-    int n; // Tamaño de la matriz
-    vector<Edge> edges;
-
-    if (file.is_open()) {
-        file >> n;
-
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                int weight;
-                file >> weight;
-                if (weight > 0) {
-                    edges.push_back(Edge(i, j, weight));
-                }
-            }
-        }
-        file.close();
-    } else {
-        cerr << "Error al abrir el archivo: " << filename << endl;
-        exit(1);
-    }
-
-    return edges;
-}
-
-
-void printEdges(const vector<Edge>& edges) {
-    cout << "Aristas:" << endl;
-    
-    for (const Edge& edge : edges) {
-        cout << edge.start << " -> " << edge.end << " : " << edge.weight << endl;
-    }
-}
 
 
 
